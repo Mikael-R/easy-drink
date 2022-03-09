@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: drink-now-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      yarn dev --host
+    volumes:
+      - .:/app
+    ports:
+      - ${PORT:-3000}:${PORT:-3000}
+    env_file:
+      - .env
