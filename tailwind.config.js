@@ -1,7 +1,14 @@
 module.exports = {
-  content: [],
+  mode: 'jit',
+  content: [
+    './src/**/*.tsx',
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'Roboto', 'sans-serif']
+      },
+    },
   },
   plugins: [],
 }
