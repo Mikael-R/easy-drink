@@ -2,12 +2,11 @@ version: '3.7'
 
 services:
   web:
-    container_name: drink-now-app
+    container_name: easy-drink-app
     build:
       context: .
       dockerfile: Dockerfile
-    command:
-      yarn dev --host
+    command: yarn dev --host
     volumes:
       - .:/app
     ports:
