@@ -13,6 +13,8 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "space-before-function-paren": "off",
+    "multiline-ternary": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["off"]
   }

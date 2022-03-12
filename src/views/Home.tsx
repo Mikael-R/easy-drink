@@ -1,15 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-import CocktailRepository from '@/repositories/CocktailRepository'
+import { useDrinks } from '@/contexts/drinksContext'
 
 const HomePage: React.FC = () => {
-  const cocktailRepository = new CocktailRepository()
+  const { isLoading, drinks } = useDrinks()
 
-  useEffect(() => {
-    cocktailRepository.searchDrinksByName('margarita').then(console.log)
-  })
-
-  return <span className='text-indigo-600'>Hello world</span>
+  return (
+    <main>
+      {isLoading ? (
+        <>Loading...</>
+      ) : (
+        drinks.map((drink) => (
+          <div key={drink.idDrink}>
+            <p className='text-indigo-600'>{drink.strDrink}</p>
+          </div>
+        ))
+      )}
+    </main>
+  )
 }
 
 export default HomePage

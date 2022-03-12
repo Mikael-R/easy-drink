@@ -51,3 +51,5 @@ export interface Drink {
   strCreativeCommonsConfirmed: string
   dateModified?: string
 }
+
+export type DrinkList = Drink[]
