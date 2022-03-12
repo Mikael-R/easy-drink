@@ -5,7 +5,7 @@ import SearchIcon from '@/assets/images/search-alt.svg'
 
 import Title from '@/components/Title'
 import Input from '@/components/Input'
-import CardDrink from '@/components/CardDrink'
+import Card from '@/components/Card'
 
 import { useDrinks } from '@/contexts/drinksContext'
 
@@ -39,7 +39,14 @@ const HomePage: React.FC = () => {
       ) : (
         <div className='grid grid-cols-3 gap-20 mt-24'>
           {drinks.map((drink) => (
-            <CardDrink key={drink.idDrink} drink={drink} />
+            <Card
+              key={drink.idDrink}
+              image={drink.strDrinkThumb}
+              title={drink.strDrink}
+              description={drink.strInstructions}
+              buttonText='View more'
+              buttonAction={() => {}}
+            />
           ))}
         </div>
       )}
