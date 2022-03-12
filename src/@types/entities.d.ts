@@ -50,6 +50,7 @@ export interface Drink {
   strImageAttribution?: string
   strCreativeCommonsConfirmed: string
   dateModified?: string
+  ingredients: { name: string; measure: string }[]
 }
 
 export type DrinkList = Drink[]

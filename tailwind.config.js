@@ -1,14 +1,16 @@
 module.exports = {
   mode: 'jit',
   content: [
-    './src/**/*.tsx',
+    './src/**/*.tsx'
   ],
   theme: {
     extend: {
       fontFamily: {
         sans: ['Poppins', 'Roboto', 'sans-serif']
-      },
-    },
+      }
+    }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ]
 }

@@ -1,5 +1,5 @@
 import Http from '@/services/Http'
-import type { Drink, DrinkList } from '@/@types/entities'
+import type { DrinkList } from '@/@types/entities'
 
 export type DrinksFilter =
   | 'Ordinary_Drink'
@@ -32,7 +32,26 @@ export default class DrinksRepository extends Http {
   }
 
   async getById(id: string) {
-    return await this.get<Drink>(`/lookup.php?i=${id}`)
+    const data = await this.get<DrinksResponse>(`/lookup.php?i=${id}`)
+
+    data.drinks.map((drink: any) => {
+      drink.ingredients = []
+
+      for (let i = 1; i <= 15; i++) {
+        if (drink[`strIngredient${i}`]) {
+          drink.ingredients.push({
+            name: drink[`strIngredient${i}`],
+            measure: drink[`strMeasure${i}`]
+          })
+        } else {
+          break
+        }
+      }
+
+      return drink
+    })
+
+    return data
   }
 
   async searchFilter(filter: DrinksFilter) {
