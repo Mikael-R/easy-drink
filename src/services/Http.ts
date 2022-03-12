@@ -1,25 +1,22 @@
-import { setup } from "axios-cache-adapter";
+import axios from 'axios'
 
-import type { AxiosInstance, AxiosRequestConfig } from "axios";
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
 class Http {
-  protected http: AxiosInstance;
+  protected http: AxiosInstance
 
   constructor() {
-    this.http = setup({
+    this.http = axios.create({
       baseURL: import.meta.env.VITE_API_URL,
       headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-      },
-    });
+        accept: 'application/json',
+        'content-type': 'application/json'
+      }
+    })
   }
 
-  public async get<R>(
-    route: string,
-    config?: AxiosRequestConfig
-  ): Promise<R> {
-    return (await this.http.get(`${route}`, config)).data;
+  public async get<R>(route: string, config?: AxiosRequestConfig): Promise<R> {
+    return (await this.http.get(`${route}`, config)).data
   }
 
   public async post<T, R>(
@@ -27,16 +24,16 @@ class Http {
     data: T,
     config?: AxiosRequestConfig
   ): Promise<R> {
-    return (await this.http.post(`${route}`, data, config)).data;
+    return (await this.http.post(`${route}`, data, config)).data
   }
 
   public async put<T, R>(route: string, data: T): Promise<R> {
-    return (await this.http.put(`${route}`, data)).data;
+    return (await this.http.put(`${route}`, data)).data
   }
 
   public async delete<R>(route: string): Promise<R> {
-    return (await this.http.delete(`${route}`)).data;
+    return (await this.http.delete(`${route}`)).data
   }
 }
 
-export default new Http()
+export default Http

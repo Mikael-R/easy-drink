@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
-    "axios-cache-adapter": "^2.7.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
