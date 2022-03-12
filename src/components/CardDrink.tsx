@@ -13,6 +13,7 @@ const CardDrink = ({ drink }: Props) => {
     <div className='w-64 bg-gradient-to-r from-indigo-100 to-indigo-200 rounded-xl shadow-md'>
       <img
         src={drink.strDrinkThumb}
+        alt='Drink picture'
         width={128}
         height={128}
         className='rounded-3xl mx-auto -mt-10'
