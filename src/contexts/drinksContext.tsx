@@ -11,8 +11,8 @@ interface DrinkContextData {
   drinks: DrinkList
   name: string
   filter: DrinksFilter
-  setFilter: (filter: DrinksFilter) => void
-  setName: (name: string) => void
+  searchWithFilter: (filter: DrinksFilter) => void
+  searchByName: (name: string) => void
 }
 
 interface Props {
@@ -24,8 +24,8 @@ export const DrinkContext = createContext({} as DrinkContextData)
 export function DrinkProvider({ children }: Props) {
   const [isLoading, setIsLoading] = useState(true)
   const [drinks, setDrinks] = useState<DrinkList>([])
-  const [name, setName] = useState('')
-  const [filter, setFilter] = useState<DrinksFilter>('Non_Alcoholic')
+  const [name, searchByName] = useState('')
+  const [filter, searchWithFilter] = useState<DrinksFilter>('Non_Alcoholic')
 
   const drinksRepository = new DrinksRepository()
 
@@ -45,11 +45,18 @@ export function DrinkProvider({ children }: Props) {
 
   useEffect(() => {
     loadData()
-  }, [filter])
+  }, [name, filter])
 
   return (
     <DrinkContext.Provider
-      value={{ isLoading, drinks, filter, name, setName, setFilter }}
+      value={{
+        isLoading,
+        drinks,
+        filter,
+        name,
+        searchByName,
+        searchWithFilter
+      }}
     >
       {children}
     </DrinkContext.Provider>
