@@ -24,7 +24,7 @@ export const DrinkContext = createContext({} as DrinkContextData)
 export function DrinkProvider({ children }: Props) {
   const [isLoading, setIsLoading] = useState(true)
   const [drinks, setDrinks] = useState<DrinkList>([])
-  const [name, searchByName] = useState('margarita')
+  const [name, searchByName] = useState('vodka')
   const [filter, searchWithFilter] = useState<DrinksFilter>('')
 
   const drinksRepository = new DrinksRepository()

@@ -16,9 +16,14 @@ const CardDrink = ({ drink }: Props) => {
         alt='Drink picture'
         width={128}
         height={128}
-        className='rounded-3xl mx-auto -mt-10'
+        className='rounded-3xl mx-auto -mt-12'
       />
-      <div className='flex flex-col space-y-3 p-3'>
+      <div
+        className={`
+          ${drink.strInstructions ? 'h-44' : ''}
+          flex flex-col justify-between space-y-3 p-3
+        `}
+      >
         <p className='text-gray-700 font-bold text-lg line-clamp-1'>
           {drink.strDrink}
         </p>
