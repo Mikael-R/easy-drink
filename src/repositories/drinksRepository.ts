@@ -6,8 +6,10 @@ export type DrinksFilter =
   | 'Cocktail'
   | 'Alcoholic'
   | 'Non_Alcoholic'
-  | 'Gin'
   | 'Vodka'
+  | 'Gin'
+  | 'Rum'
+  | 'Tequila'
   | ''
 
 interface DrinksResponse {
@@ -27,7 +29,7 @@ export default class DrinksRepository extends Http {
     return await this.get<DrinksResponse>(`/filter.php?a=${alcoholic}`)
   }
 
-  async searchByIngredient(ingredient?: 'Gin' | 'Vodka') {
+  async searchByIngredient(ingredient?: 'Vodka' | 'Gin' | 'Rum' | 'Tequila') {
     return await this.get<DrinksResponse>(`/filter.php?i=${ingredient}`)
   }
 
@@ -63,7 +65,12 @@ export default class DrinksRepository extends Http {
       return await this.searchByAlcoholic(filter)
     }
 
-    if (filter === 'Gin' || filter === 'Vodka') {
+    if (
+      filter === 'Vodka' ||
+      filter === 'Gin' ||
+      filter === 'Rum' ||
+      filter === 'Tequila'
+    ) {
       return await this.searchByIngredient(filter)
     }
 
