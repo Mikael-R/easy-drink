@@ -35,7 +35,6 @@ export function DrinkProvider({ children }: Props) {
         ? drinksRepository.searchFilter(filter)
         : drinksRepository.searchByName(name))
       setDrinks(data.drinks)
-      setIsLoading(false)
     } catch (error) {
       console.error(error)
     } finally {
