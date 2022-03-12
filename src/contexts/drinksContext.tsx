@@ -9,7 +9,7 @@ import type { ReactNode } from 'react'
 interface DrinkContextData {
   isLoading: boolean
   drinks: DrinkList
-  name: string
+  searchName: string
   filter: DrinksFilter
   searchWithFilter: (filter: DrinksFilter) => void
   searchByName: (name: string) => void
@@ -22,19 +22,20 @@ interface Props {
 export const DrinkContext = createContext({} as DrinkContextData)
 
 export function DrinkProvider({ children }: Props) {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [drinks, setDrinks] = useState<DrinkList>([])
-  const [name, searchByName] = useState('vodka')
+  const [searchName, searchByName] = useState('')
   const [filter, searchWithFilter] = useState<DrinksFilter>('')
 
   const drinksRepository = new DrinksRepository()
 
   const loadData = async () => {
     try {
+      setIsLoading(true)
       const data = await (filter
         ? drinksRepository.searchFilter(filter)
-        : drinksRepository.searchByName(name))
-      setDrinks(data.drinks)
+        : drinksRepository.searchByName(searchName))
+      setDrinks(data.drinks || [])
     } catch (error) {
       console.error(error)
     } finally {
@@ -44,7 +45,7 @@ export function DrinkProvider({ children }: Props) {
 
   useEffect(() => {
     loadData()
-  }, [name, filter])
+  }, [searchName, filter])
 
   return (
     <DrinkContext.Provider
@@ -52,7 +53,7 @@ export function DrinkProvider({ children }: Props) {
         isLoading,
         drinks,
         filter,
-        name,
+        searchName,
         searchByName,
         searchWithFilter
       }}

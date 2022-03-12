@@ -1,13 +1,16 @@
 import React from 'react'
 
 import LoadingSvg from '@/assets/images/loading.svg'
+import SearchIcon from '@/assets/images/search-alt.svg'
 
-import { useDrinks } from '@/contexts/drinksContext'
 import Title from '@/components/Title'
+import Input from '@/components/Input'
 import CardDrink from '@/components/CardDrink'
 
+import { useDrinks } from '@/contexts/drinksContext'
+
 const HomePage: React.FC = () => {
-  const { isLoading, drinks } = useDrinks()
+  const { isLoading, searchName, searchByName, drinks } = useDrinks()
 
   return (
     <main>
@@ -15,6 +18,16 @@ const HomePage: React.FC = () => {
         Welcome to
         <br /> Easy Drink 😋
       </Title>
+
+      <Input
+        value={searchName}
+        onChange={(e) => searchByName(e.target.value)}
+        onClickButton={() => searchByName(searchName)}
+        fullWidth={true}
+        icon={SearchIcon}
+        height='lg'
+        placeholder='Search a drink name'
+      />
 
       {isLoading ? (
         <img
