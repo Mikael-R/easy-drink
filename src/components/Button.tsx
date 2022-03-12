@@ -8,13 +8,13 @@ interface Props extends ButtonHTMLAttributes<any> {
   skin?: 'primary'
 }
 
-export default function Button({
+const Button = ({
   fullWidth,
   height = 'lg',
   skin = 'primary',
   children,
   ...props
-}: Props) {
+}: Props) => {
   const skins = {
     primary: {
       bg: 'bg-indigo-600 hover:bg-transparent',
@@ -42,3 +42,5 @@ export default function Button({
     </button>
   )
 }
+
+export default Button
