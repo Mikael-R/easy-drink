@@ -9,7 +9,7 @@ import LinkedinIcon from '@/assets/icons/linkedin.svg'
 const Header = () => {
   return (
     <header className='flex justify-between'>
-      <Title>
+      <Title tag='h1'>
         Welcome to
         <br /> Easy Drink 😋
       </Title>

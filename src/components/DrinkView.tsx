@@ -18,7 +18,7 @@ const DrinkView = () => {
 
   if (!activeDrink) {
     return (
-      <Title style={{ textAlign: 'center', marginTop: '64px' }}>
+      <Title tag='h2' customClass='text-center mt-16'>
         Something went wrong 😬
       </Title>
     )
@@ -29,11 +29,13 @@ const DrinkView = () => {
 
   return (
     <div className='mt-12'>
-      <Button
-        skin='icon'
-        icon={AngleLeftIcon}
-        onClick={() => viewDrink('-1')}
-      />
+      <Button skin='icon' icon={AngleLeftIcon} onClick={() => viewDrink('-1')}>
+        Back
+      </Button>
+
+      <Title tag='h2' customClass='text-center'>
+        {activeDrink.strDrink}
+      </Title>
 
       <div className='mt-10'>
         <img

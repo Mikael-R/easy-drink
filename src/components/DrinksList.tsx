@@ -15,7 +15,7 @@ const DrinksList = () => {
 
   if (!drinks.length) {
     return (
-      <Title style={{ textAlign: 'center', marginTop: '64px' }}>
+      <Title tag='h2' customClass='text-center mt-16'>
         😬
         <br />
         No drinks found by:

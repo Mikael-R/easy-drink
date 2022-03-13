@@ -9,7 +9,7 @@ interface Props extends ButtonHTMLAttributes<any> {
   icon?: ReactElement | string
   active?: boolean
 }
-// h-max p-2 hover:bg-indigo-200 transition-colors rounded-full
+
 const Button = ({
   fullWidth,
   height = 'lg',
@@ -31,7 +31,7 @@ const Button = ({
       border: 'rounded-full '
     },
     icon: {
-      bg: 'bg-transparent hover:bg-indigo-200 p-2',
+      bg: 'bg-transparent hover:bg-indigo-200',
       text: '',
       border: 'rounded-full'
     }
@@ -55,9 +55,23 @@ const Button = ({
       `}
     >
       {icon ? (
-        <div className='flex flex-col items-center justify-center space-y-4'>
+        <div
+          className={`
+            ${skin === 'iconRounded' && 'flex-col space-y-4'}
+            ${skin === 'icon' && 'flex-row p-2'}
+            flex items-center justify-center
+        `}
+        >
           <img src={icon as any} alt='Icon' width={45} height={45} />
-          {children && <span>{children}</span>}
+          {children && (
+            <span
+              className={`
+                ${skin === 'icon' && 'pr-4'}
+              `}
+            >
+              {children}
+            </span>
+          )}
         </div>
       ) : (
         children
