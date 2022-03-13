@@ -35,7 +35,6 @@ const DrinksFilter = () => {
         icon={SearchIcon}
         height='lg'
         placeholder='Search a drink name'
-        disabled={!!searchFilter.length}
       />
 
       <div className='flex items-center justify-around mt-8'>

@@ -55,6 +55,12 @@ export const DrinkProvider = ({ children }: Props) => {
         ? drinksRepository.searchFilter(searchFilter)
         : drinksRepository.searchByName(searchName))
 
+      if (searchName) {
+        data.drinks = data.drinks.filter(({ strDrink }) =>
+          strDrink.toLowerCase().includes(searchName.toLowerCase())
+        )
+      }
+
       setActiveDrink(null)
       setDrinks(data.drinks || [])
     } catch (error) {
