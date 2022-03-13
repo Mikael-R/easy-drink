@@ -43,9 +43,7 @@ const HomePage: React.FC = () => {
       <Input
         value={searchName}
         onChange={(e) => searchByName(e.target.value)}
-        onClickButton={() => {
-          searchByName(searchName)
-        }}
+        onClickButton={() => searchByName(searchName)}
         fullWidth={true}
         icon={SearchIcon}
         height='lg'
@@ -63,9 +61,7 @@ const HomePage: React.FC = () => {
               skin='icon'
               icon={SearchIcon}
               active={drinkFilter === searchFilter}
-              onClick={() => {
-                searchWithFilter(filter)
-              }}
+              onClick={() => searchWithFilter(filter)}
             >
               <span
                 dangerouslySetInnerHTML={{

@@ -23,12 +23,12 @@ const Button = ({
     primary: {
       bg: 'bg-indigo-600 hover:bg-transparent',
       text: 'text-white hover:text-indigo-600',
-      border: 'hover:border-2 hover:border-indigo-600'
+      border: 'rounded-md hover:border-2 hover:border-indigo-600'
     },
     icon: {
       bg: 'bg-gradient-to-b from-indigo-200 to-indigo-300 hover:to-indigo-400',
       text: 'text-indigo-900',
-      border: 'rounded-full'
+      border: `rounded-full ${active && 'border-2 border-indigo-600'}`
     }
   }
 
@@ -38,11 +38,10 @@ const Button = ({
     <button
       {...props}
       className={`
-        transition-colors duration-200 rounded-md shadow-md font-bold
+        transition-colors duration-200 shadow-md font-bold
         ${props.disabled ? 'cursor-not-allowed opacity-75' : 'cursor-pointer'}
         ${fullWidth && 'w-full'}
         ${skin === 'icon' ? 'w-24 text-xs py-3 px-6' : 'h-10 px-6'}
-        ${active ? 'border-2 border-indigo-600' : ''}
         ${buttonSkin.text}
         ${buttonSkin.border}
         ${buttonSkin.bg}
