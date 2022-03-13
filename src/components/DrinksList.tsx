@@ -26,7 +26,7 @@ const DrinksList = () => {
   }
 
   return (
-    <div className='flex flex-wrap items-center justify-center gap-x-12 gap-y-28 mt-28 mx-auto'>
+    <div className='flex flex-wrap items-center justify-around gap-x-12 gap-y-28 mt-28 mx-auto'>
       {drinks.map((drink) => (
         <Card
           key={drink.idDrink}
