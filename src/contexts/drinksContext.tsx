@@ -41,6 +41,7 @@ export const DrinkProvider = ({ children }: Props) => {
       setActiveDrink(data)
     } catch (error) {
       console.error(error)
+      alert('Something went wrong!')
     } finally {
       setIsLoading(false)
     }
@@ -57,6 +58,7 @@ export const DrinkProvider = ({ children }: Props) => {
       setDrinks(data.drinks || [])
     } catch (error) {
       console.error(error)
+      alert('Something went wrong!')
     } finally {
       setIsLoading(false)
     }

@@ -36,7 +36,7 @@ export default class DrinksRepository extends Http {
   async getById(id: string): Promise<Drink | null> {
     const data = await this.get<DrinksResponse>(`/lookup.php?i=${id}`)
 
-    const drink: any = data.drinks.shift() || null
+    const drink: any = data?.drinks?.shift() || null
 
     if (drink) {
       drink.ingredients = []
