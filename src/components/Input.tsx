@@ -14,6 +14,7 @@ const Input = ({
   icon,
   iconPosition = 'right',
   onClickButton,
+  disabled,
   ...props
 }: Props) => {
   return (
@@ -23,22 +24,29 @@ const Input = ({
         ${!fullWidth && 'w-max'}
         ${height === 'md' && 'h-10'}
         ${height === 'lg' && 'h-16'}
+        ${disabled && 'bg-gray-200 opacity-75 cursor-not-allowed'}
         bg-white flex items-center rounded-lg shadow-md md:shadow-xl
       `}
     >
       <input
         {...props}
+        disabled={disabled}
         autoFocus
         className={`
-          ${fullWidth && 'w-full'} rounded-l-full px-6 text-gray-700
-          leading-tight focus:outline-none
+          ${disabled && 'bg-gray-200 cursor-not-allowed'}
+          ${fullWidth && 'w-full'}
+          rounded-l-full px-6 text-gray-700 last:leading-tight focus:outline-none
         `}
       />
 
       {icon && (
         <div className='p-2 md:p-4'>
           <button
-            className='rounded-full focus:outline-none w-10 h-12 md:w-10 md:h-12 flex items-center justify-center'
+            disabled={disabled}
+            className={`
+              ${disabled && 'cursor-not-allowed'}
+              rounded-full focus:outline-none w-10 h-12 md:w-10 md:h-12 flex items-center justify-center
+            `}
             onClick={onClickButton}
           >
             <img src={icon as any} alt='Icon' />

@@ -10,8 +10,8 @@ interface DrinkContextData {
   isLoading: boolean
   drinks: DrinkList
   searchName: string
-  filter: DrinksFilter
-  searchWithFilter: (filter: DrinksFilter) => void
+  searchFilter: DrinksFilter
+  searchWithFilter: (searchFilter: DrinksFilter) => void
   searchByName: (name: string) => void
 }
 
@@ -25,15 +25,15 @@ export function DrinkProvider({ children }: Props) {
   const [isLoading, setIsLoading] = useState(false)
   const [drinks, setDrinks] = useState<DrinkList>([])
   const [searchName, searchByName] = useState('')
-  const [filter, searchWithFilter] = useState<DrinksFilter>('')
+  const [searchFilter, searchWithFilter] = useState<DrinksFilter>('')
 
   const drinksRepository = new DrinksRepository()
 
   const loadData = async () => {
     try {
       setIsLoading(true)
-      const data = await (filter
-        ? drinksRepository.searchFilter(filter)
+      const data = await (searchFilter
+        ? drinksRepository.searchFilter(searchFilter)
         : drinksRepository.searchByName(searchName))
       setDrinks(data.drinks || [])
     } catch (error) {
@@ -45,14 +45,14 @@ export function DrinkProvider({ children }: Props) {
 
   useEffect(() => {
     loadData()
-  }, [searchName, filter])
+  }, [searchName, searchFilter])
 
   return (
     <DrinkContext.Provider
       value={{
         isLoading,
         drinks,
-        filter,
+        searchFilter,
         searchName,
         searchByName,
         searchWithFilter
