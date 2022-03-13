@@ -48,18 +48,14 @@ const Button = ({
         ${fullWidth && 'w-full'}
         ${skin === 'iconRounded' && 'w-24 h-36 px-6'}
         ${skin === 'primary' && 'h-10 px-6'}
+        ${active && 'border-2 border-indigo-600'}
         ${buttonSkin.text}
         ${buttonSkin.border}
         ${buttonSkin.bg}
       `}
     >
       {icon ? (
-        <div
-          className={`
-            ${active && 'border-2 border-indigo-600'}
-            flex flex-col items-center justify-center space-y-4
-          `}
-        >
+        <div className='flex flex-col items-center justify-center space-y-4'>
           <img src={icon as any} alt='Icon' width={45} height={45} />
           {children && <span>{children}</span>}
         </div>
