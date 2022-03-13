@@ -1,7 +1,7 @@
 import Http from '@/services/Http'
 import type { DrinkList } from '@/@types/entities'
 
-export type DrinksFilter =
+export type DrinkFilter =
   | 'Ordinary_Drink'
   | 'Cocktail'
   | 'Alcoholic'
@@ -56,7 +56,7 @@ export default class DrinksRepository extends Http {
     return data
   }
 
-  async searchFilter(filter: DrinksFilter) {
+  async searchFilter(filter: DrinkFilter) {
     if (filter === 'Ordinary_Drink' || filter === 'Cocktail') {
       return await this.searchByCategory(filter)
     }
