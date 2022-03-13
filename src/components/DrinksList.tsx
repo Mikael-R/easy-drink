@@ -23,7 +23,7 @@ const DrinksList = () => {
 
   if (!drinks.length) {
     return (
-      <Title center={true}>
+      <Title style={{ textAlign: 'center', marginTop: '64px' }}>
         😬
         <br />
         No drinks found by:
@@ -34,7 +34,7 @@ const DrinksList = () => {
   }
 
   return (
-    <div className='grid grid-cols-3 gap-24 mt-28'>
+    <div className='grid grid-cols-3 gap-28 mt-28'>
       {drinks.map((drink) => (
         <Card
           key={drink.idDrink}
