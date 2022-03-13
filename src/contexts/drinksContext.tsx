@@ -55,6 +55,7 @@ export const DrinkProvider = ({ children }: Props) => {
         ? drinksRepository.searchFilter(searchFilter)
         : drinksRepository.searchByName(searchName))
 
+      setActiveDrink(null)
       setDrinks(data.drinks || [])
     } catch (error) {
       console.error(error)
