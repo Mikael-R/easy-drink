@@ -1,32 +1,69 @@
-## Todos
+<h1 align="center">Welcome to easy-drink 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/Mikael-R/easy-drink/blob/main/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/mikaelr16" target="_blank">
+    <img alt="Twitter: mikaelr16" src="https://img.shields.io/twitter/follow/mikaelr16.svg?style=social" />
+  </a>
+</p>
 
-[X] List drinks
-[X] Filter drinks by categories
-[X] Search by name
-[X] Loading on search
-[X] Not found message
-[X] View Drink
-[] Button go to top
-[] Footer with list A-Z
-[] Create readme
-[] Host on Vercel
+> 🍸 Search for drinks in [thecocktaildb](https://www.thecocktaildb.com)
 
-## Getting Started
+### ✨ [Demo](https://easy-drink.vercel.app)
 
-First, run the development server:
+## Install
 
-### Docker
-
-```bash
-docker-compose up
+```sh
+yarn install
 ```
 
-### Or in you machine
+## Usage
 
-```bash
-npm run dev
-# or
+```sh
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or
+
+```sh
+docker-compose up -d
+```
+
+## Technologies
+
+- Vite
+- React
+- Typescript
+- Tailwind
+- Docker
+
+## Todos
+
+- [x] List drinks
+- [x] Filter drinks by categories
+- [x] Search by name
+- [x] Loading on search
+- [x] Not found message
+- [x] View Drink
+- [ ] Button go to top
+- [ ] Footer with list A-Z
+- [ ] Cypress
+
+## Author
+
+👤 **Mikael R**
+
+- Website: https://mikael.idti.tech/
+- Twitter: [@mikaelr16](https://twitter.com/mikaelr16)
+- Github: [@Mikael-R](https://github.com/Mikael-R)
+- LinkedIn: [@mikael-r](https://linkedin.com/in/mikael-r)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
