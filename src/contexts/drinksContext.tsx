@@ -39,9 +39,8 @@ export const DrinkProvider = ({ children }: Props) => {
       const data = await drinksRepository.getById(idDrink)
 
       setActiveDrink(data)
-    } catch (error) {
-      console.error(error)
-      alert('Something went wrong!')
+    } catch {
+      setActiveDrink(null)
     } finally {
       setIsLoading(false)
     }
@@ -63,9 +62,8 @@ export const DrinkProvider = ({ children }: Props) => {
 
       setActiveDrink(null)
       setDrinks(data.drinks || [])
-    } catch (error) {
-      console.error(error)
-      alert('Something went wrong!')
+    } catch {
+      setDrinks([])
     } finally {
       setIsLoading(false)
     }
