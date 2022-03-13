@@ -8,7 +8,7 @@ import LoadingSvg from '@/assets/images/loading.svg'
 import { useDrinks } from '@/contexts/drinksContext'
 
 const DrinksList = () => {
-  const { isLoading, drinks } = useDrinks()
+  const { isLoading, searchName, drinks } = useDrinks()
 
   if (isLoading) {
     return (
@@ -21,7 +21,17 @@ const DrinksList = () => {
     )
   }
 
-  if (!drinks.length) return <Title center={true}>No drinks found 😬</Title>
+  if (!drinks.length) {
+    return (
+      <Title center={true}>
+        😬
+        <br />
+        No drinks found by:
+        <br />
+        {searchName}
+      </Title>
+    )
+  }
 
   return (
     <div className='grid grid-cols-3 gap-20'>

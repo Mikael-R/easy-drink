@@ -10,7 +10,7 @@ const Title = ({ children, center }: Props) => {
     <h1
       className={`
         ${center && 'text-center'}
-        text-3xl lg:text-5xl text-indigo-900 font-bold mb-10
+        text-3xl lg:text-5xl text-indigo-900 font-bold mb-10 lg:leading-tight
     `}
     >
       {children}
