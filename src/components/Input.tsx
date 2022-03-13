@@ -24,8 +24,8 @@ const Input = ({
         ${!fullWidth && 'w-max'}
         ${height === 'md' && 'h-10'}
         ${height === 'lg' && 'h-16'}
-        ${disabled && 'bg-gray-200 opacity-75 cursor-not-allowed'}
-        bg-white flex items-center rounded-lg shadow-md md:shadow-xl
+        ${disabled ? 'bg-gray-200 opacity-75 cursor-not-allowed' : 'bg-white'}
+        flex items-center rounded-lg shadow-md
       `}
     >
       <input

@@ -2,6 +2,7 @@ import React from 'react'
 
 import LoadingSvg from '@/assets/images/loading.svg'
 import SearchIcon from '@/assets/images/search-alt.svg'
+import MartiniIcon from '@/assets/images/glass-martini-alt.svg'
 
 import Title from '@/components/Title'
 import Input from '@/components/Input'
@@ -59,7 +60,7 @@ const HomePage: React.FC = () => {
             <Button
               key={i}
               skin='icon'
-              icon={SearchIcon}
+              icon={MartiniIcon}
               active={drinkFilter === searchFilter}
               onClick={() => searchWithFilter(filter)}
             >

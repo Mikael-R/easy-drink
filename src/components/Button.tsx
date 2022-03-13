@@ -49,13 +49,7 @@ const Button = ({
     >
       {icon ? (
         <div className='h-32 flex flex-col items-center justify-center space-y-3'>
-          <img
-            src={icon as any}
-            alt='Icon'
-            width={56}
-            height={56}
-            className='mx-auto'
-          />
+          <img src={icon as any} alt='Icon' width={36} height={36} />
           <span>{children}</span>
         </div>
       ) : (
