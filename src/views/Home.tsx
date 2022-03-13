@@ -3,6 +3,8 @@ import React from 'react'
 import LoadingSvg from '@/assets/images/loading.svg'
 import SearchIcon from '@/assets/images/search-alt.svg'
 import MartiniIcon from '@/assets/images/glass-martini-alt.svg'
+import GithubIcon from '@/assets/images/github.svg'
+import LinkedinIcon from '@/assets/images/linkedin.svg'
 
 import Title from '@/components/Title'
 import Input from '@/components/Input'
@@ -36,10 +38,29 @@ const HomePage: React.FC = () => {
 
   return (
     <main>
-      <Title>
-        Welcome to
-        <br /> Easy Drink 😋
-      </Title>
+      <div className='flex justify-between'>
+        <Title>
+          Welcome to
+          <br /> Easy Drink 😋
+        </Title>
+
+        <div className='flex space-x-3'>
+          <a
+            href='https://github.com/Mikael-R'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Button skin='icon' icon={GithubIcon} />
+          </a>
+          <a
+            href='https://www.linkedin.com/in/mikael-r/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Button skin='icon' icon={LinkedinIcon} />
+          </a>
+        </div>
+      </div>
 
       <Input
         value={searchName}
@@ -59,7 +80,7 @@ const HomePage: React.FC = () => {
           return (
             <Button
               key={i}
-              skin='icon'
+              skin='iconRounded'
               icon={MartiniIcon}
               active={drinkFilter === searchFilter}
               onClick={() => searchWithFilter(filter)}

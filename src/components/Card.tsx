@@ -22,8 +22,8 @@ const CardDrink = ({
       <img
         src={image}
         alt='Drink picture'
-        width={128}
-        height={128}
+        width={156}
+        height={156}
         className='rounded-3xl mx-auto -mt-12'
       />
       <div
