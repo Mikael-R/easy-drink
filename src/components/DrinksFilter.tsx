@@ -38,7 +38,7 @@ const DrinksFilter = () => {
         disabled={!!searchFilter.length}
       />
 
-      <div className='flex items-center justify-around mt-10 mb-32'>
+      <div className='flex items-center justify-around mt-8'>
         {filters.map((drinkFilter) => {
           const filter = drinkFilter === searchFilter ? '' : drinkFilter
 
@@ -50,11 +50,7 @@ const DrinksFilter = () => {
               active={drinkFilter === searchFilter}
               onClick={() => searchWithFilter(filter)}
             >
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: drinkFilter.split('_').join('<br/>')
-                }}
-              ></span>
+              <span>{drinkFilter.split('_').join(' ')}</span>
             </Button>
           )
         })}

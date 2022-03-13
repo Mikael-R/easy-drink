@@ -34,7 +34,7 @@ const DrinksList = () => {
   }
 
   return (
-    <div className='grid grid-cols-3 gap-20'>
+    <div className='grid grid-cols-3 gap-24 mt-28'>
       {drinks.map((drink) => (
         <Card
           key={drink.idDrink}

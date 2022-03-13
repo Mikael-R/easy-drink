@@ -24,7 +24,7 @@ const CardDrink = ({
         alt='Drink picture'
         width={156}
         height={156}
-        className='rounded-3xl mx-auto -mt-12'
+        className='rounded-3xl mx-auto -mt-14'
       />
       <div
         className={`
