@@ -18,12 +18,12 @@ const Card = ({
   buttonAction
 }: Props) => {
   return (
-    <div className='w-64 bg-gradient-to-r from-indigo-100 to-indigo-200 rounded-xl shadow-md'>
+    <div className='w-72 bg-gradient-to-r from-indigo-100 to-indigo-200 rounded-xl shadow-md'>
       <img
         src={image}
         alt='Drink picture'
-        width={156}
-        height={156}
+        width={200}
+        height={200}
         className='rounded-3xl mx-auto -mt-14'
       />
       <div

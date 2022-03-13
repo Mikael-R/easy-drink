@@ -62,7 +62,7 @@ const DrinkView = () => {
           <Tags label='Serve:' content={[activeDrink.strGlass]} />
 
           <p
-            className='text-center text-indigo-900 font-medium'
+            className='text-indigo-900 font-medium'
             dangerouslySetInnerHTML={{
               __html: activeDrink.strInstructions.replaceAll('. ', '.<br/>')
             }}

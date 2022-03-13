@@ -26,7 +26,7 @@ const DrinksList = () => {
   }
 
   return (
-    <div className='grid grid-cols-3 gap-28 mt-28'>
+    <div className='flex flex-wrap items-center justify-center gap-x-12 gap-y-28 mt-28 mx-auto'>
       {drinks.map((drink) => (
         <Card
           key={drink.idDrink}
