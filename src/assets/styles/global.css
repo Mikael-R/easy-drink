@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  @apply max-w-[1440px] min-h-[90vh] m-8 p-8;
+  @apply max-w-[1440px] p-8 m-8 2xl:mx-auto;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
