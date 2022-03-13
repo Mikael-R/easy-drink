@@ -1,11 +1,17 @@
-import React, { InputHTMLAttributes } from 'react'
+import React from 'react'
+
+import type {
+  ReactElement,
+  MouseEventHandler,
+  InputHTMLAttributes
+} from 'react'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean
   height?: 'md' | 'lg'
-  icon?: React.ReactElement | string
+  icon?: ReactElement | string
   iconPosition?: 'right' | 'left'
-  onClickButton?: React.MouseEventHandler<HTMLButtonElement>
+  onClickButton?: MouseEventHandler<HTMLButtonElement>
 }
 
 const Input = ({

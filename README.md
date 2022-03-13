@@ -5,7 +5,7 @@
 [X] Search by name
 [X] Loading on search
 [X] Not found message
-[] View Drink
+[X] View Drink
 [] Button go to top
 [] Footer with list A-Z
 [] Create readme

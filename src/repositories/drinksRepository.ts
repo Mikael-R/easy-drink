@@ -54,7 +54,7 @@ export default class DrinksRepository extends Http {
         }
       }
 
-      drink.tags = drink.strTags?.split(',') || []
+      drink.tags = drink.strTags?.split(',')
 
       return drink
     }

@@ -4,8 +4,7 @@ import Loading from '@/components/Loading'
 import Title from '@/components/Title'
 import Button from '@/components/Button'
 import Link from '@/components/Link'
-import CardLabel from '@/components/CardLabel'
-import Tag from '@/components/Tag'
+import Tags from '@/components/Tags'
 
 import AngleLeftIcon from '@/assets/icons/angle-left.svg'
 
@@ -29,8 +28,6 @@ const DrinkView = () => {
   const [authorName, authorProfile] =
     activeDrink.strImageAttribution?.split(' ') || []
 
-  console.log(activeDrink)
-
   return (
     <div className='mt-12'>
       <Button skin='icon' icon={AngleLeftIcon} onClick={() => viewDrink('-1')}>
@@ -51,25 +48,18 @@ const DrinkView = () => {
         />
 
         <div>
-          {activeDrink.tags.length ? (
-            <CardLabel label='Tags:'>
-              {activeDrink.tags.map((tagName) => (
-                <Tag key={tagName}>{tagName}</Tag>
-              ))}
-            </CardLabel>
-          ) : null}
+          {activeDrink.tags && (
+            <Tags label='Tags:' content={activeDrink.tags} />
+          )}
 
-          <CardLabel label='Ingredients:'>
-            {activeDrink.ingredients.map(({ name, measure }) => (
-              <Tag key={name}>
-                {name} {measure ? `(${measure})` : null}
-              </Tag>
-            ))}
-          </CardLabel>
+          <Tags
+            label='Ingredients:'
+            content={activeDrink.ingredients.map(({ name, measure }) =>
+              measure ? `${name} (${measure})` : name
+            )}
+          />
 
-          <CardLabel label='Serve:'>
-            <Tag>{activeDrink.strGlass}</Tag>
-          </CardLabel>
+          <Tags label='Serve:' content={[activeDrink.strGlass]} />
 
           <p
             className='text-center text-indigo-900 font-medium'
