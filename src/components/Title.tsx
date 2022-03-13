@@ -8,23 +8,21 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const Title = ({ tag, customClass, children, ...props }: Props) => {
   const defaultClass = `text-indigo-900 font-bold mb-10 lg:leading-tight ${customClass}`
 
-  if (tag === 'h1') {
-    return (
-      <h1 {...props} className={`text-4xl lg:text-5xl ${defaultClass}`}>
-        {children}
-      </h1>
-    )
+  const skins = {
+    h1: 'text-4xl lg:text-5xl',
+    h2: 'text-3xl lg:text-4xl'
   }
 
-  if (tag === 'h2') {
-    return (
-      <h2 {...props} className={`text-3xl lg:text-4xl ${defaultClass}`}>
-        {children}
-      </h2>
-    )
-  }
+  const skin = skins[tag]
 
-  return null
+  return React.createElement(
+    tag,
+    {
+      className: `${skin} ${defaultClass}`,
+      ...props
+    },
+    children
+  )
 }
 
 export default Title
