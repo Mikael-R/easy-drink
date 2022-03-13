@@ -1,5 +1,5 @@
 import Http from '@/services/Http'
-import type { DrinkList } from '@/@types/entities'
+import type { Drink, DrinkList } from '@/@types/entities'
 
 export type DrinkFilter =
   | 'Ordinary_Drink'
@@ -33,16 +33,20 @@ export default class DrinksRepository extends Http {
     return await this.get<DrinksResponse>(`/filter.php?i=${ingredient}`)
   }
 
-  async getById(id: string) {
+  async getById(id: string): Promise<Drink | null> {
     const data = await this.get<DrinksResponse>(`/lookup.php?i=${id}`)
 
-    data.drinks.map((drink: any) => {
+    const drink: any = data.drinks.shift() || null
+
+    if (drink) {
       drink.ingredients = []
 
       for (let i = 1; i <= 15; i++) {
-        if (drink[`strIngredient${i}`]) {
+        const ingredient = drink[`strIngredient${i}`]
+
+        if (ingredient) {
           drink.ingredients.push({
-            name: drink[`strIngredient${i}`],
+            name: ingredient,
             measure: drink[`strMeasure${i}`]
           })
         } else {
@@ -51,9 +55,9 @@ export default class DrinksRepository extends Http {
       }
 
       return drink
-    })
+    }
 
-    return data
+    return drink
   }
 
   async searchFilter(filter: DrinkFilter) {

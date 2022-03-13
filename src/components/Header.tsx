@@ -3,8 +3,8 @@ import React from 'react'
 import Title from '@/components/Title'
 import Button from '@/components/Button'
 
-import GithubIcon from '@/assets/images/github.svg'
-import LinkedinIcon from '@/assets/images/linkedin.svg'
+import GithubIcon from '@/assets/icons/github.svg'
+import LinkedinIcon from '@/assets/icons/linkedin.svg'
 
 const Header = () => {
   return (

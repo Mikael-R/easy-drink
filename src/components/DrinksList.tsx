@@ -2,23 +2,15 @@ import React from 'react'
 
 import Card from '@/components/Card'
 import Title from '@/components/Title'
-
-import LoadingSvg from '@/assets/images/loading.svg'
+import Loading from '@/components/Loading'
 
 import { useDrinks } from '@/contexts/drinksContext'
 
 const DrinksList = () => {
-  const { isLoading, searchName, drinks } = useDrinks()
+  const { isLoading, searchName, drinks, viewDrink } = useDrinks()
 
   if (isLoading) {
-    return (
-      <img
-        src={LoadingSvg}
-        width={128}
-        height={128}
-        className='my-20 mx-auto'
-      />
-    )
+    return <Loading />
   }
 
   if (!drinks.length) {
@@ -42,7 +34,7 @@ const DrinksList = () => {
           title={drink.strDrink}
           description={drink.strInstructions}
           buttonText='View more'
-          buttonAction={() => {}}
+          buttonAction={() => viewDrink(drink.idDrink)}
         />
       ))}
     </div>

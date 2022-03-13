@@ -3,8 +3,8 @@ import React from 'react'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
 
-import SearchIcon from '@/assets/images/search-alt.svg'
-import MartiniIcon from '@/assets/images/glass-martini-alt.svg'
+import SearchIcon from '@/assets/icons/search-alt.svg'
+import MartiniIcon from '@/assets/icons/glass-martini-alt.svg'
 
 import { useDrinks } from '@/contexts/drinksContext'
 

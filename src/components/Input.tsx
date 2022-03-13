@@ -33,7 +33,7 @@ const Input = ({
         disabled={disabled}
         autoFocus
         className={`
-          ${disabled && 'bg-gray-200 cursor-not-allowed'}
+          ${disabled ? 'bg-gray-200 cursor-not-allowed' : 'bg-white'}
           ${fullWidth && 'w-full'}
           rounded-l-full px-6 text-gray-700 last:leading-tight focus:outline-none
         `}
