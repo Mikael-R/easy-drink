@@ -51,6 +51,7 @@ export interface Drink {
   strCreativeCommonsConfirmed: string
   dateModified?: string
   ingredients: { name: string; measure: string }[]
+  tags: string[]
 }
 
 export type DrinkList = Drink[]

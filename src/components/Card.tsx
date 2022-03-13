@@ -10,7 +10,7 @@ interface Props {
   buttonAction: () => void
 }
 
-const CardDrink = ({
+const Card = ({
   image,
   title,
   description,
@@ -42,4 +42,4 @@ const CardDrink = ({
   )
 }
 
-export default CardDrink
+export default Card

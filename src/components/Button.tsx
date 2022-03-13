@@ -66,7 +66,8 @@ const Button = ({
           {children && (
             <span
               className={`
-                ${skin === 'icon' && 'pr-4'}
+                ${skin === 'icon' && 'text-lg pr-4'}
+                text-indigo-900
               `}
             >
               {children}

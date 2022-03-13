@@ -50,7 +50,7 @@ const DrinksFilter = () => {
               active={drinkFilter === searchFilter}
               onClick={() => searchWithFilter(filter)}
             >
-              <span>{drinkFilter.split('_').join(' ')}</span>
+              <span>{drinkFilter.replaceAll('_', ' ')}</span>
             </Button>
           )
         })}
